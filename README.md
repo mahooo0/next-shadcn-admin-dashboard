@@ -1,136 +1,178 @@
-# Next.js Admin Template with TypeScript & Shadcn UI
+# Zenith Admin
 
-**Studio Admin** - Includes multiple dashboards, authentication layouts, customizable theme presets, and more.
+A modern, opinionated admin template built on Next.js 16 (App Router), React 19, Tailwind CSS v4 and shadcn/ui — with a multi-channel CRM chat, a three-pane mail client, a calendar, a kanban board, a draggable widget dashboard, and a deep customization panel.
 
-<img src="https://github.com/arhamkhnz/next-shadcn-admin-dashboard/blob/main/media/dashboard.png?version=5" alt="Dashboard Screenshot">
+Forked from [arhamkhnz/next-shadcn-admin-dashboard](https://github.com/arhamkhnz/next-shadcn-admin-dashboard) and extended with the features below.
 
-Most admin templates I found, free or paid, felt cluttered, outdated, or too rigid. I built this as a cleaner alternative with features often missing in others, such as theme toggling and layout controls, while keeping the design modern, minimal, and flexible.
+---
 
-> **View demo:** [studio admin](https://next-shadcn-admin-dashboard.vercel.app)
+## Highlights
 
-> [!NOTE]
-> Looking for the Base UI version? Check out [next-shadcn-admin-dashboard-baseui](https://github.com/arhamkhnz/next-shadcn-admin-dashboard-baseui).
+- **Customize panel (right-side Sheet)** — Theme · Color · Density · Layout · Container · Direction · Language, plus advanced controls (Font, Sidebar style, Navbar behavior, Collapse mode). Anti-flicker boot script applies preferences from cookie before hydration.
+- **Soft pastel theme presets** — Neutral · Zinc · Blue · Violet · Rose · Orange. Color-only overrides (no radius/shadow changes), so swapping palettes never breaks the layout.
+- **Notifications panel** — All / Unread tabs, 5 types (info, success, warning, error, mention), avatar fallback for actor messages, mark-all-as-read.
+- **Multi-channel CRM chat** — WhatsApp, Telegram, Instagram, Messenger, Email, Live chat, SMS. Status (Open/Pending/Resolved), assignment, internal notes, customer side panel, quick replies.
+- **Mail client** — three-pane (folders → list → viewer) with reply box, labels, attachments, search, star.
+- **Calendar** — month view, event dialog, color-coded events.
+- **Kanban** — DnD-kit drag&drop board.
+- **Components showcase** — kitchen-sink page with every primitive plus Origin UI patterns: password strength, tag input, combobox, multi-select, OTP, rating, stepper, plan toggle, **phone input with libphonenumber-js validation**.
+- **Authentication layouts** — v1 / v2 (login + register).
+- **Form patterns** — `react-hook-form` + `zod` with field-level error states, including phone validation.
+- **Persistent preferences** — cookie-based with full SSR consistency.
 
-> [!TIP]
-> I’m also working on Nuxt.js, Svelte, and React (Vite + TanStack Router) versions of this dashboard. They’ll be live soon.
+---
 
-## Features
+## Tech
 
-- Built with Next.js 16, TypeScript, Tailwind CSS v4, and Shadcn UI  
-- Responsive and mobile-friendly  
-- Customizable theme presets (light/dark modes with color schemes like Tangerine, Brutalist, and more)  
-- Flexible layouts (collapsible sidebar, variable content widths)  
-- Authentication flows and screens  
-- Prebuilt dashboards (Default, CRM, Finance, Analytics, Productivity) plus legacy variants  
-- Role-Based Access Control (RBAC) with config-driven UI and multi-tenant support *(planned)*  
+- **Next.js 16** (App Router, Turbopack), **React 19**, **TypeScript**
+- **Tailwind CSS v4** + **shadcn/ui** primitives
+- **Zustand** (preferences store), **react-hook-form + zod**, **sonner** (toasts)
+- **lucide-react** + **simple-icons** (brand logos)
+- **libphonenumber-js**, **date-fns**, **@dnd-kit**
+- **Biome** for lint/format · **Husky + lint-staged** on commit
+- **pnpm** package manager
 
-> [!NOTE]
-> The default dashboard uses the **shadcn neutral** theme.  
-> It also includes additional color presets inspired by [Tweakcn](https://tweakcn.com):  
->
-> - Tangerine  
-> - Neo Brutalism  
-> - Soft Pop  
->
-> You can create more presets by following the same structure as the existing ones.
+---
 
-> Looking for the **Next.js 15** version?  
-> Check out the [`archive/next15`](https://github.com/arhamkhnz/next-shadcn-admin-dashboard/tree/archive/next15) branch.  
-> This branch contains the setup prior to upgrading to Next 16 and the React Compiler.
+## Quick start
 
-> Looking for the **Next.js 14 + Tailwind CSS v3** version?  
-> Check out the [`archive/next14-tailwindv3`](https://github.com/arhamkhnz/next-shadcn-admin-dashboard/tree/archive/next14-tailwindv3) branch.  
-> It has a different color theme and is not actively maintained, but I try to keep it updated with major changes.  
-
-## Tech Stack
-
-- **Framework**: Next.js 16 (App Router), TypeScript, Tailwind CSS v4  
-- **UI Components**: Shadcn UI  
-- **Validation**: Zod  
-- **Forms & State Management**: React Hook Form, Zustand  
-- **Tables & Data Handling**: TanStack Table  
-- **Tooling & DX**: Biome, Husky  
-
-## Screens
-
-### Available
-- Default Dashboard  
-- CRM Dashboard  
-- Finance Dashboard  
-- Analytics Dashboard  
-- Productivity Dashboard  
-- Authentication (4 screens)  
-- Legacy: Default v1, CRM v1, Finance v1, Analytics v1
-
-### Coming Soon
-- E-commerce Dashboard  
-- Academy Dashboard  
-- Logistics Dashboard  
-- Email Page  
-- Chat Page  
-- Calendar Page  
-- Kanban Board  
-- Invoice Page  
-- Users Management  
-- Roles Management  
-
-## Colocation File System Architecture
-
-This project follows a **colocation-based architecture** each feature keeps its own pages, components, and logic inside its route folder.  
-Shared UI, hooks, and configuration live at the top level, making the codebase modular, scalable, and easier to maintain as the app grows.
-
-For a full breakdown of the structure with examples, see the [Next Colocation Template](https://github.com/arhamkhnz/next-colocation-template).
-
-## Getting Started
-
-You can run this project locally, or deploy it instantly with Vercel.
-
-### Deploy with Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Farhamkhnz%2Fnext-shadcn-admin-dashboard)
-
-_Deploy your own copy with one click._
-
-### Run locally
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/arhamkhnz/next-shadcn-admin-dashboard.git
-   ```
-   
-2. **Navigate into the project**
-   ```bash
-    cd next-shadcn-admin-dashboard
-   ```
-   
-3. **Install dependencies**
-   ```bash
-    npm install
-   ```
-
-4. **Start the development server**
-   ```bash
-   npm run dev
-   ```
-
-Your app will be running at [http://localhost:3000](http://localhost:3000)
-
-### Formatting and Linting
-
-Format, lint, and organize imports
 ```bash
-npx @biomejs/biome check --write
+pnpm install
+pnpm dev
 ```
-> For more information on available rules, fixes, and CLI options, refer to the [Biome documentation](https://biomejs.dev/).
+
+Open [http://localhost:3000](http://localhost:3000) — you'll land on `/dashboard/default`.
+
+Other useful commands:
+
+```bash
+pnpm build           # production build
+pnpm start           # serve production build
+pnpm exec tsc --noEmit          # type-check
+pnpm exec biome check src/      # lint
+pnpm exec biome check --write src/  # autofix
+```
 
 ---
 
-> [!IMPORTANT]  
-> This project is updated frequently. If you’re working from a fork or an older clone, pull the latest changes before syncing. Some updates may include breaking changes.
+## Routes
+
+| Path | Description |
+| --- | --- |
+| `/dashboard/default` | Overview dashboard |
+| `/dashboard/analytics` | Analytics dashboard |
+| `/dashboard/crm` | CRM dashboard |
+| `/dashboard/finance` | Finance dashboard |
+| `/dashboard/productivity` | Productivity dashboard |
+| `/dashboard/draggable` | Draggable widget dashboard |
+| `/dashboard/mail` | 3-pane mail client |
+| `/dashboard/chat` | Multi-channel CRM messenger |
+| `/dashboard/calendar` | Calendar with events |
+| `/dashboard/kanban` | Kanban board |
+| `/dashboard/components` | Component showcase + Origin UI |
+| `/auth/v1/login`, `/auth/v2/login` | Login layouts |
+| `/auth/v1/register`, `/auth/v2/register` | Register layouts |
 
 ---
 
-Contributions are welcome. Feel free to open issues, feature requests, or start a discussion.
+## Project layout
 
+```
+src/
+├── app/
+│   ├── layout.tsx                    # Root layout — sets data-* prefs from defaults
+│   ├── globals.css                   # Tailwind + theme presets + density tokens
+│   └── (main)/
+│       ├── auth/                     # Login / register (v1, v2)
+│       └── dashboard/
+│           ├── layout.tsx            # Sidebar + header (Notifications, Customize, Theme, Account)
+│           ├── _components/sidebar/  # App sidebar, account switcher, search, layout-controls, notifications-sheet
+│           ├── default/, analytics/, crm/, finance/, productivity/, …
+│           ├── components/           # Showcase page (kitchen sink)
+│           ├── mail/                 # 3-pane mail client
+│           ├── chat/                 # 4-pane multi-channel CRM
+│           ├── calendar/
+│           ├── kanban/
+│           └── draggable/
+├── components/
+│   ├── ui/                           # shadcn primitives (button, dialog, sheet, …)
+│   ├── ui/phone-input.tsx            # Country selector + libphonenumber-js formatter
+│   └── simple-icon.tsx               # simple-icons SVG renderer
+├── data/                             # Sample/demo data (notifications, mail, chat, users)
+├── navigation/sidebar/sidebar-items.ts
+├── lib/
+│   ├── preferences/                  # Layout & theme types, defaults, persistence, apply utils
+│   ├── fonts/registry.ts             # Font options for the Customize panel
+│   └── utils.ts                      # cn(...)
+├── stores/preferences/               # Zustand store + provider
+├── scripts/theme-boot.tsx            # Pre-hydration script for cookie-driven prefs
+├── styles/presets/*.css              # Theme preset CSS (zinc, blue, violet, rose, orange)
+├── server/server-actions.ts          # getPreference / setValueToCookie
+└── config/app-config.ts              # APP_CONFIG (name, copyright, meta)
+```
 
-**Happy Vibe Coding!**
+---
+
+## Customization system
+
+The Customize sheet (`/dashboard/_components/sidebar/layout-controls.tsx`) is wired through a single source of truth:
+
+1. **Type & options** — `src/lib/preferences/layout.ts`
+2. **Defaults & persistence** — `src/lib/preferences/preferences-config.ts`
+3. **Zustand state** — `src/stores/preferences/preferences-store.ts`
+4. **DOM apply** — `src/lib/preferences/layout-utils.ts` (sets `data-*` attributes on `<html>`)
+5. **Anti-flicker** — `src/scripts/theme-boot.tsx` reads cookies and applies attributes before hydration
+
+Adding a new preference (e.g. `density`) is the same 9-step flow each time. The full guide lives in [`CLAUDE.md`](./CLAUDE.md).
+
+### Theme preset rule
+
+Theme presets in `src/styles/presets/*.css` override **only color tokens** — `--primary`, `--primary-foreground`, `--ring`, `--sidebar-primary`, `--sidebar-ring`, `--chart-1`. **No radius, shadows, fonts or backgrounds.** Swapping palettes never breaks the layout.
+
+To add a new color preset:
+1. Create `src/styles/presets/<name>.css` (light + dark blocks)
+2. Add `@import` in `src/app/globals.css`
+3. Append entry to `THEME_PRESET_OPTIONS` in `src/lib/preferences/theme.ts`
+
+---
+
+## Adding a new dashboard page
+
+1. **Sidebar entry** — `src/navigation/sidebar/sidebar-items.ts`
+2. **Sample data** — `src/data/<feature>.ts`
+3. **Components** — `src/app/(main)/dashboard/<feature>/_components/*.tsx` (mark client comps with `"use client"`)
+4. **Page** — `src/app/(main)/dashboard/<feature>/page.tsx` (server component, exports `metadata`)
+
+See `mail/`, `chat/`, `components/` for reference patterns. Push interactivity into a single `_components/<feature>-app.tsx` client container; keep the `page.tsx` server-side.
+
+---
+
+## Working with Claude Code
+
+This repo ships with [`CLAUDE.md`](./CLAUDE.md) — conventions, architecture, where things live, and the exact rules an AI agent should follow when extending the template. Open the project in [Claude Code](https://claude.com/claude-code) and the doc is auto-loaded into every session.
+
+Highlights:
+- Server vs client component rules
+- The 9-step preference-adding flow
+- Theme preset constraint (colors only)
+- Sheet patterns (Customize, Notifications) vs full pages (Mail, Chat)
+- Form patterns (RHF + zod, phone validation)
+- "Things NOT to do" list
+
+---
+
+## Conventions
+
+- **No emojis** in code or commit messages unless the user asks.
+- **No comments** explaining what code does — only WHY, when non-obvious.
+- **TypeScript-strict** — `pnpm exec tsc --noEmit` must pass.
+- **Path alias** — import from `@/` (mapped to `src/`).
+- **Server vs client** — `page.tsx` is server (with `metadata`); interactivity goes into a `_components/*-app.tsx` client container.
+- **No back-compat shims** when refactoring data shapes — this is an in-house template, not a library.
+- Pre-commit hook (Husky + lint-staged + Biome) auto-formats and lints staged files.
+
+---
+
+## License
+
+MIT — see [LICENSE](./LICENSE).

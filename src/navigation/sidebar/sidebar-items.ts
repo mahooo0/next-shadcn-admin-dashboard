@@ -2,12 +2,14 @@ import {
   Banknote,
   Calendar,
   ChartBar,
+  Component,
   Fingerprint,
   Forklift,
   Gauge,
   GraduationCap,
   Kanban,
   LayoutDashboard,
+  LayoutGrid,
   ListTodo,
   Lock,
   type LucideIcon,
@@ -75,6 +77,12 @@ export const sidebarItems: NavGroup[] = [
         icon: ListTodo,
       },
       {
+        title: "Draggable",
+        url: "/dashboard/draggable",
+        icon: LayoutGrid,
+        isNew: true,
+      },
+      {
         title: "E-commerce",
         url: "/dashboard/coming-soon",
         icon: ShoppingBag,
@@ -100,27 +108,26 @@ export const sidebarItems: NavGroup[] = [
     items: [
       {
         title: "Email",
-        url: "/dashboard/coming-soon",
+        url: "/dashboard/mail",
         icon: Mail,
-        comingSoon: true,
+        isNew: true,
       },
       {
         title: "Chat",
-        url: "/dashboard/coming-soon",
+        url: "/dashboard/chat",
         icon: MessageSquare,
-        comingSoon: true,
+        isNew: true,
       },
       {
         title: "Calendar",
-        url: "/dashboard/coming-soon",
+        url: "/dashboard/calendar",
         icon: Calendar,
-        comingSoon: true,
+        isNew: true,
       },
       {
         title: "Kanban",
-        url: "/dashboard/coming-soon",
+        url: "/dashboard/kanban",
         icon: Kanban,
-        comingSoon: true,
       },
       {
         title: "Invoice",
@@ -173,6 +180,12 @@ export const sidebarItems: NavGroup[] = [
     id: 4,
     label: "Misc",
     items: [
+      {
+        title: "Components",
+        url: "/dashboard/components",
+        icon: Component,
+        isNew: true,
+      },
       {
         title: "Others",
         url: "/dashboard/coming-soon",

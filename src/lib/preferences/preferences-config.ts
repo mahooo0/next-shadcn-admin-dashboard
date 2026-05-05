@@ -13,7 +13,16 @@
 
 import type { FontKey } from "@/lib/fonts/registry";
 
-import type { ContentLayout, NavbarStyle, SidebarCollapsible, SidebarVariant } from "./layout";
+import type {
+  ContentLayout,
+  Density,
+  Direction,
+  Language,
+  LayoutMode,
+  NavbarStyle,
+  SidebarCollapsible,
+  SidebarVariant,
+} from "./layout";
 import type { ThemeMode, ThemePreset } from "./theme";
 
 export type PreferencePersistence = "none" | "client-cookie" | "server-cookie" | "localStorage";
@@ -29,6 +38,10 @@ export type PreferenceValueMap = {
   navbar_style: NavbarStyle;
   sidebar_variant: SidebarVariant;
   sidebar_collapsible: SidebarCollapsible;
+  density: Density;
+  layout_mode: LayoutMode;
+  direction: Direction;
+  language: Language;
 };
 
 export type PreferenceKey = keyof PreferenceValueMap;
@@ -73,6 +86,10 @@ export const PREFERENCE_DEFAULTS: PreferenceValueMap = {
   navbar_style: "sticky",
   sidebar_variant: "inset",
   sidebar_collapsible: "icon",
+  density: "comfortable",
+  layout_mode: "sidebar",
+  direction: "ltr",
+  language: "en",
 };
 
 /**
@@ -87,4 +104,8 @@ export const PREFERENCE_PERSISTENCE: PreferencePersistenceConfig = {
   navbar_style: "client-cookie",
   sidebar_variant: "client-cookie", // layout-critical → cannot be "localStorage"
   sidebar_collapsible: "client-cookie", // layout-critical → cannot be "localStorage"
+  density: "client-cookie",
+  layout_mode: "client-cookie",
+  direction: "client-cookie",
+  language: "client-cookie",
 };

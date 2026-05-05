@@ -20,27 +20,43 @@ export const THEME_PRESET_OPTIONS = [
     },
   },
   {
-    label: "Brutalist",
-    value: "brutalist",
+    label: "Blue",
+    value: "blue",
     primary: {
-      light: "oklch(0.6489 0.237 26.9728)",
-      dark: "oklch(0.7044 0.1872 23.1858)",
+      light: "oklch(0.72 0.11 245)",
+      dark: "oklch(0.78 0.1 245)",
     },
   },
   {
-    label: "Soft Pop",
-    value: "soft-pop",
+    label: "Orange",
+    value: "orange",
     primary: {
-      light: "oklch(0.5106 0.2301 276.9656)",
-      dark: "oklch(0.6801 0.1583 276.9349)",
+      light: "oklch(0.78 0.12 55)",
+      dark: "oklch(0.82 0.11 55)",
     },
   },
   {
-    label: "Tangerine",
-    value: "tangerine",
+    label: "Rose",
+    value: "rose",
     primary: {
-      light: "oklch(0.64 0.17 36.44)",
-      dark: "oklch(0.64 0.17 36.44)",
+      light: "oklch(0.76 0.12 15)",
+      dark: "oklch(0.81 0.11 15)",
+    },
+  },
+  {
+    label: "Violet",
+    value: "violet",
+    primary: {
+      light: "oklch(0.74 0.12 300)",
+      dark: "oklch(0.79 0.11 300)",
+    },
+  },
+  {
+    label: "Zinc",
+    value: "zinc",
+    primary: {
+      light: "oklch(0.21 0.006 285.885)",
+      dark: "oklch(0.92 0.004 286.32)",
     },
   },
 ] as const;

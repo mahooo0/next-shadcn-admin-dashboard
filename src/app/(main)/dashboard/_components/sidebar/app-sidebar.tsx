@@ -2,7 +2,17 @@
 
 import Link from "next/link";
 
-import { CircleHelp, ClipboardList, Command, Database, File, Search, Settings } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  CircleHelp,
+  ClipboardList,
+  Command,
+  Database,
+  File,
+  Search,
+  Settings,
+} from "lucide-react";
 import { useShallow } from "zustand/react/shallow";
 
 import {
@@ -13,15 +23,41 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import { APP_CONFIG } from "@/config/app-config";
 import { rootUser } from "@/data/users";
+import { cn } from "@/lib/utils";
 import { sidebarItems } from "@/navigation/sidebar/sidebar-items";
 import { usePreferencesStore } from "@/stores/preferences/preferences-provider";
 
 import { NavMain } from "./nav-main";
 import { NavUser } from "./nav-user";
 import { SidebarSupportCard } from "./sidebar-support-card";
+
+function SidebarCollapseToggle({ className }: { className?: string }) {
+  const { toggleSidebar, state, isMobile } = useSidebar();
+
+  if (isMobile) return null;
+
+  const isCollapsed = state === "collapsed";
+
+  return (
+    <button
+      type="button"
+      onClick={toggleSidebar}
+      aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+      title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+      className={cn(
+        "absolute top-20 z-30 flex size-6 items-center justify-center rounded-full border bg-background text-muted-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground",
+        "-right-3 group-data-[variant=floating]:-right-1 group-data-[variant=inset]:-right-1",
+        className,
+      )}
+    >
+      {isCollapsed ? <ChevronRight className="size-3.5" /> : <ChevronLeft className="size-3.5" />}
+    </button>
+  );
+}
 
 const _data = {
   navSecondary: [
@@ -74,6 +110,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <Sidebar {...props} variant={variant} collapsible={collapsible}>
+      <SidebarCollapseToggle />
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>

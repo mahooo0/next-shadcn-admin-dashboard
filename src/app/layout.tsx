@@ -18,11 +18,23 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
-  const { theme_mode, theme_preset, content_layout, navbar_style, sidebar_variant, sidebar_collapsible, font } =
-    PREFERENCE_DEFAULTS;
+  const {
+    theme_mode,
+    theme_preset,
+    content_layout,
+    navbar_style,
+    sidebar_variant,
+    sidebar_collapsible,
+    font,
+    density,
+    layout_mode,
+    direction,
+    language,
+  } = PREFERENCE_DEFAULTS;
   return (
     <html
-      lang="en"
+      lang={language}
+      dir={direction}
       data-theme-mode={theme_mode}
       data-theme-preset={theme_preset}
       data-content-layout={content_layout}
@@ -30,6 +42,10 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       data-sidebar-variant={sidebar_variant}
       data-sidebar-collapsible={sidebar_collapsible}
       data-font={font}
+      data-density={density}
+      data-layout-mode={layout_mode}
+      data-direction={direction}
+      data-language={language}
       suppressHydrationWarning
     >
       <head>

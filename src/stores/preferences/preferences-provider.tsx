@@ -7,6 +7,10 @@ import { type StoreApi, useStore } from "zustand";
 import { type FontKey, fontRegistry } from "@/lib/fonts/registry";
 import {
   CONTENT_LAYOUT_VALUES,
+  DENSITY_VALUES,
+  DIRECTION_VALUES,
+  LANGUAGE_VALUES,
+  LAYOUT_MODE_VALUES,
   NAVBAR_STYLE_VALUES,
   SIDEBAR_COLLAPSIBLE_VALUES,
   SIDEBAR_VARIANT_VALUES,
@@ -40,6 +44,10 @@ function readDomState(): Partial<PreferencesState> {
     navbarStyle: getSafeValue(root.getAttribute("data-navbar-style"), NAVBAR_STYLE_VALUES),
     sidebarVariant: getSafeValue(root.getAttribute("data-sidebar-variant"), SIDEBAR_VARIANT_VALUES),
     sidebarCollapsible: getSafeValue(root.getAttribute("data-sidebar-collapsible"), SIDEBAR_COLLAPSIBLE_VALUES),
+    density: getSafeValue(root.getAttribute("data-density"), DENSITY_VALUES),
+    layoutMode: getSafeValue(root.getAttribute("data-layout-mode"), LAYOUT_MODE_VALUES),
+    direction: getSafeValue(root.getAttribute("data-direction"), DIRECTION_VALUES),
+    language: getSafeValue(root.getAttribute("data-language"), LANGUAGE_VALUES),
   };
 }
 

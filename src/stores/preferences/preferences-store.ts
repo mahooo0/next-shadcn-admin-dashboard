@@ -1,7 +1,16 @@
 import { createStore } from "zustand/vanilla";
 
 import type { FontKey } from "@/lib/fonts/registry";
-import type { ContentLayout, NavbarStyle, SidebarCollapsible, SidebarVariant } from "@/lib/preferences/layout";
+import type {
+  ContentLayout,
+  Density,
+  Direction,
+  Language,
+  LayoutMode,
+  NavbarStyle,
+  SidebarCollapsible,
+  SidebarVariant,
+} from "@/lib/preferences/layout";
 import { PREFERENCE_DEFAULTS } from "@/lib/preferences/preferences-config";
 import type { ResolvedThemeMode, ThemeMode, ThemePreset } from "@/lib/preferences/theme";
 
@@ -14,6 +23,10 @@ export type PreferencesState = {
   navbarStyle: NavbarStyle;
   sidebarVariant: SidebarVariant;
   sidebarCollapsible: SidebarCollapsible;
+  density: Density;
+  layoutMode: LayoutMode;
+  direction: Direction;
+  language: Language;
   setThemeMode: (mode: ThemeMode) => void;
   setResolvedThemeMode: (mode: ResolvedThemeMode) => void;
   setThemePreset: (preset: ThemePreset) => void;
@@ -22,6 +35,10 @@ export type PreferencesState = {
   setNavbarStyle: (style: NavbarStyle) => void;
   setSidebarVariant: (variant: SidebarVariant) => void;
   setSidebarCollapsible: (mode: SidebarCollapsible) => void;
+  setDensity: (density: Density) => void;
+  setLayoutMode: (mode: LayoutMode) => void;
+  setDirection: (direction: Direction) => void;
+  setLanguage: (language: Language) => void;
   isSynced: boolean;
   setIsSynced: (val: boolean) => void;
 };
@@ -36,6 +53,10 @@ export const createPreferencesStore = (init?: Partial<PreferencesState>) =>
     navbarStyle: init?.navbarStyle ?? PREFERENCE_DEFAULTS.navbar_style,
     sidebarVariant: init?.sidebarVariant ?? PREFERENCE_DEFAULTS.sidebar_variant,
     sidebarCollapsible: init?.sidebarCollapsible ?? PREFERENCE_DEFAULTS.sidebar_collapsible,
+    density: init?.density ?? PREFERENCE_DEFAULTS.density,
+    layoutMode: init?.layoutMode ?? PREFERENCE_DEFAULTS.layout_mode,
+    direction: init?.direction ?? PREFERENCE_DEFAULTS.direction,
+    language: init?.language ?? PREFERENCE_DEFAULTS.language,
     setThemeMode: (mode) => set({ themeMode: mode }),
     setResolvedThemeMode: (mode) => set({ resolvedThemeMode: mode }),
     setThemePreset: (preset) => set({ themePreset: preset }),
@@ -44,6 +65,10 @@ export const createPreferencesStore = (init?: Partial<PreferencesState>) =>
     setNavbarStyle: (style) => set({ navbarStyle: style }),
     setSidebarVariant: (variant) => set({ sidebarVariant: variant }),
     setSidebarCollapsible: (mode) => set({ sidebarCollapsible: mode }),
+    setDensity: (density) => set({ density }),
+    setLayoutMode: (mode) => set({ layoutMode: mode }),
+    setDirection: (direction) => set({ direction }),
+    setLanguage: (language) => set({ language }),
     isSynced: init?.isSynced ?? false,
     setIsSynced: (val) => set({ isSynced: val }),
   }));
